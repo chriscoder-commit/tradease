@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :tradesman
+  has_one :profile
   has_many :listings
 end
