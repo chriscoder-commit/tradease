@@ -1,0 +1,18 @@
+<h1>become a tradie!</h1>
+
+<%= form_with model: @tradesman, local: true do |form| %>
+  <%= form.label :certification %>
+  <%= form.file_field :certification %>
+  <%= form.submit %>
+<% end %>
+
+
+
+
+
+
+
+
+
+#whatever model you want to create a new entry for - so receives instance of tradesman class, like as an object. so when they look at form, the fields are empty - so it's a
+#new instance. but for edit form - the fields will be populated, so depends what you pass to model as to whether the fields are populated with things. 
