@@ -7,4 +7,5 @@
 <p>Price: <%= listing.price %></p>
 <p>Availability: <%= listing.available %></p>
 <p>Description: <%= listing.description %></p>
+<%= link_to listing[:name], listing_path(listing[:id]) %>
 <% end %>
