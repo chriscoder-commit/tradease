@@ -3,16 +3,20 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[:show, :destroy]
 
   def index
-    
+    @listings = Listing.all
   end 
 
   def show
   end 
 
   def new
+    @listing = Listing.new
   end 
 
   def create
+    @listing = current_user.listings.new(listing_params)
+    @listing.save
+    redirect_to listings_path
   end 
 
   def update
@@ -30,6 +34,8 @@ class ListingsController < ApplicationController
   end 
 
   def listing_params
-    params.require(:listing).permit()
+    params.require(:listing).permit(:name, :price, :available, :description)
   end 
 end
+
+

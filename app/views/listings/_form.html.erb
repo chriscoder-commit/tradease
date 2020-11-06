@@ -1,0 +1,18 @@
+<%= form_with model: @listing, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+  
+  <%= form.label :available %>
+  <%= form.text_field :available %>
+
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.submit id: "submit" %>
+<% end %>
+
+
+  
+
+

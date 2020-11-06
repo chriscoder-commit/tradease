@@ -2,3 +2,9 @@
 
 <%= link_to "become a tradie!", new_tradesman_path %>
 
+<% @listings.each do |listing| %>
+<p>Name: <%= listing.name %></p>
+<p>Price: <%= listing.price %></p>
+<p>Availability: <%= listing.available %></p>
+<p>Description: <%= listing.description %></p>
+<% end %>
