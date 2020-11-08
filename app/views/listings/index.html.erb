@@ -1,6 +1,7 @@
 <h1>Listings Homepage</h1>
 
 <%= link_to "become a tradie!", new_tradesman_path %>
+<%= link_to "make a listing", new_listing_path %>
 
 <% @listings.each do |listing| %>
 <p>Name: <%= listing.name %></p>
