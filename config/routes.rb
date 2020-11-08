@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "listings#index"
 
-  resources :listings, only: %i[index new show create destroy]
-  resources :tradesmen, only: %i[new create]
+  resources :listings
+  resources :tradesmen
 
  
   

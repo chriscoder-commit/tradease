@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_listing, only: %i[:show, :destroy]
+  before_action :set_listing, only: %i[:show, :edit, :update :destroy,]
 
   def index
     @listings = Listing.all
@@ -18,10 +18,18 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.new(listing_params)
     @listing.save
     redirect_to listings_path
+  end
+  
+  def edit
+    @listing = Listing.find(params[:id])
   end 
 
   def update
-  end 
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+    # @listing.update(name: params[:listing][:name], price: params[:listing][:price], available: params[:listing][:available], description: params[:listing][:description])
+    redirect_to listings_path
+  end
 
   def destroy
     @listing.destroy
