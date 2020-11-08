@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_one :tradesman
   has_one :profile
   has_many :listings
+
+  validates :username, presence: true
 end
