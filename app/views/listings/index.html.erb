@@ -4,6 +4,7 @@
 <%= link_to "make a listing", new_listing_path %>
 
 <% @listings.each do |listing| %>
+<p>Posted by: <%= listing.user.username %>
 <p>Name: <%= listing.name %></p>
 <p>Price: <%= listing.price %></p>
 <p>Availability: <%= listing.available %></p>

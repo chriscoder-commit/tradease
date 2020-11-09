@@ -15,8 +15,12 @@ class ListingsController < ApplicationController
 
   def create
     @listing = current_user.listings.new(listing_params)
-    @listing.save
-    redirect_to listings_path
+    @listing.user = current_user
+    if @listing.save
+      redirect_to @listing, notice: 'Listing successfully created!'
+    else
+      render :new  
+    end 
   end
   
   def edit
