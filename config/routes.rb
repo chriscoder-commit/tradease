@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :tradesmen
+  resources :profiles
 
  
   

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :tradesman
   has_one :profile
   has_many :listings
+  has_many :comments
+  has_many :reivews
 
   validates :username, presence: true
 
