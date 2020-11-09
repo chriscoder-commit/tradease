@@ -2,6 +2,9 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: [:show, :edit, :update]
 
+  def index
+  end 
+  
   def show
   end 
 
@@ -10,10 +13,10 @@ class ProfilesController < ApplicationController
   end 
 
   def create
-    @profile = current_user.profile.new(profile_params)
+    @profile = Profile.new(profile_params)
     @profile.user = current_user
-    if @profile.save
-      redirect_to @profile
+    if @profile.save 
+      redirect_to listings_path
     else 
       render :new
     end 
@@ -32,7 +35,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(id)
   end 
 
-  def listing_params
+  def profile_params
     params.require(:profile).permit(:name, :description, :place_of_business, :about_me, :skills)
   end 
 

@@ -30,7 +30,6 @@ class ListingsController < ApplicationController
 
   def update
     @listing.update(listing_params)
-    # @listing.update(name: params[:listing][:name], price: params[:listing][:price], available: params[:listing][:available], description: params[:listing][:description])
     redirect_to listings_path
   end
 
