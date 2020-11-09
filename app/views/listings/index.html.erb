@@ -3,6 +3,8 @@
 <%= link_to "become a tradie!", new_tradesman_path %>
 <%= link_to "make a listing", new_listing_path %>
 
+<%= flash[:unauthorized] %>
+
 <% @listings.each do |listing| %>
 <p>Posted by: <%= listing.user.username %>
 <p>Name: <%= listing.name %></p>
@@ -11,3 +13,4 @@
 <p>Description: <%= listing.description %></p>
 <%= link_to listing[:name], listing_path(listing[:id]) %>
 <% end %>
+

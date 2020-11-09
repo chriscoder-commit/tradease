@@ -5,7 +5,7 @@
 <p>available: <%= @listing.available %></p>
 <p>description: <%= @listing.description %></p>
 
-<%# <% unless current_user ==  %> 
-<p><%= link_to 'Edit', edit_listing_path %></p>
-<p><%= link_to 'Delete', listing_path, method: :delete %></p>
-  
+<% if user_signed_in? && current_user.listings.include?(@listing) %> 
+  <p><%= link_to 'Edit', edit_listing_path %></p>
+  <p><%= link_to 'Delete', listing_path, method: :delete %></p>
+<% end %>

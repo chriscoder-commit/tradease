@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :listings
 
   validates :username, presence: true
+
+  def tradesman?
+    !self.tradesman.nil?
+  end 
 end
+
