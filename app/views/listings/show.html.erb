@@ -1,7 +1,9 @@
 <h1>individual listing </h1>
 
 <p>listing: <%= @listing.name %></p>
-<p>listing: <%= @listing.price %></p>
-<p>listing: <%= @listing.available %></p>
-<p>listing: <%= @listing.description %></p>
+<p>price: <%= @listing.price %></p>
+<p>available: <%= @listing.available %></p>
+<p>description: <%= @listing.description %></p>
 <p><%= link_to 'Edit', edit_listing_path %></p>
+<p><%= link_to 'Delete', listing_path, method: :delete %></p>
+  
