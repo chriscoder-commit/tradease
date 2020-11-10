@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_025036) do
+ActiveRecord::Schema.define(version: 2020_11_10_053536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_025036) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "listing_id", null: false
+    t.index ["listing_id"], name: "index_comments_on_listing_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_025036) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "listings"
   add_foreign_key "listings", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "tradesmen", "users"

@@ -31,5 +31,6 @@
 <p>Availability: <%= listing.available %></p>
 <p>Description: <%= listing.description %></p>
 <%= link_to listing[:name], listing_path(listing[:id]) %>
+<p>Comment Count: <%= listing.comments.count %> </p>
 <% end %>
 
