@@ -4,7 +4,11 @@ class ListingsController < ApplicationController
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def index
-    @listings = Listing.all
+    if params[:search].present?
+      @listings = Listing.search_by(search_params)
+    else
+      @listings = Listing.all
+    end
   end 
 
   def show
@@ -56,6 +60,10 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:name, :price, :available, :description)
   end 
+
+  def search_params
+    params.require(:search).permit(:listing, :price)
+  end
 end
 
 

@@ -1,12 +1,25 @@
 <h1>Listings Homepage</h1>
 
+<%# links to other areas of the application %>
 <%= link_to "become a tradie!", new_tradesman_path %>
 <%= link_to "make a listing", new_listing_path %>
 <%= link_to "make your profile", new_profile_path %>
-<%= link_to "your profile", profiles_path %>
+<%= link_to "your profile", profile_path(current_user.profile.id) %>
+
+<%#this is the search functionality of the app%>
+<%= form_with(scope: :search, url: listings_path, method: 'get', local: true) do |f| %>
+  <%= f.label :listing %>
+  <%= f.text_field :listing %>
+  <%= f.submit %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.submit %>
+<% end %>
 
 <%= flash[:unauthorized] %>
 
+<%# this is a loop that will list all listings that have been made, in the index %>
 <% @listings.each do |listing| %>
 <p>Posted by: <%= listing.user.username %>
 <p>Name: <%= listing.name %></p>
