@@ -8,5 +8,6 @@ class Listing < ApplicationRecord
   validates :description, length: { in: 10..500 }
 
   scope :search_by_listing, -> (listing) { Listing.where('name ILIKE ?', "%#{listing}%") } 
-  scope :search_by_price, -> (price) { where('price ILIKE ?', "%#{price}%") }
+  scope :search_by_min_price, -> (price) { where price: price.to_i..100000 }
+  scope :search_by_max_price, -> (price) {where price: 0..price.to_i}
 end

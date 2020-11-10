@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   resources :listings
   resources :tradesmen
-  resources :profiles
+  resources :profiles do 
+    member do
+      get "profile_listings"
+      end 
+    end
 
- 
+
   
 
   devise_for :users
