@@ -1,0 +1,7 @@
+<%#the send path of rails is determined by having a new comment, and so rails guesses that I'd want 
+a listing/:id/comment path%>
+<%= form_with(model: [ @listing, @listing.comments.build ], local: true) do |form| %> 
+  <%= form.label :body %>
+  <%= form.text_field :body %>
+  <%= form.submit id: "submit" %>
+<% end %>

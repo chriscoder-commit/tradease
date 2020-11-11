@@ -10,3 +10,12 @@
   <p><%= link_to 'Edit', edit_listing_path %></p>
   <p><%= link_to 'Delete', listing_path, method: :delete %></p>
 <% end %>
+
+<%# this is how to render the amount of comments on a listing %>
+<p>comment count: <%= @listing.comments.count %></p>
+
+<%#this is what renders the comments, collection means use this partial but use for this array of things %>
+<%= render partial: "comments/comment", collection: @listing.comments %>
+
+<%#requires a different path as the comment form exists in a different folder (comments), and not listing where the form is displayed%>
+<%= render 'comments/comment_form', comment: @comment %>
