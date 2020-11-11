@@ -11,6 +11,9 @@
   <%= form.label :description %>
   <%= form.text_field :description %>
   <%= form.submit id: "submit" %>
+
+  <%= form. label :picture %>
+  <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
 <% end %>
 
 

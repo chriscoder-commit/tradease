@@ -4,6 +4,7 @@
 <p>price: <%= @listing.price %></p>
 <p>available: <%= @listing.available %></p>
 <p>description: <%= @listing.description %></p>
+<p>image: <%= image_tag @listing.picture if @listing.picture.attached? %>
 
 <%# if the current user's listing including the instance variable of the currently shown listing then render the edit and delete %>
 <% if user_signed_in? && current_user.listings.include?(@listing) %> 
