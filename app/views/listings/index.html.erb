@@ -5,7 +5,9 @@
 <%# links to other areas of the application %>
 <%= link_to "become a tradie!", new_tradesman_path %>
 <%= link_to "make a listing", new_listing_path %>
-<%= link_to "make your profile", new_profile_path %>
+<% if current_user.profile.nil? %>
+  <%= link_to "make your profile", new_profile_path %>
+<% end %>
 <% unless current_user.profile.nil? %>
   <%= link_to "your profile", profile_path(current_user.profile.id) %>
 <% end %>
