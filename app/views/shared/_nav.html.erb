@@ -1,4 +1,27 @@
-<nav>
-  <p>Listings <%= link_to "Listings", listings_path %></p>
-  <p>Listings <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%#below are the lines to log out and return to listings page, I haven't added their class so they default to their container classes parameters? %>
+        <%= link_to "Listings", listings_path, class: "nav-link custom-class" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "nav-link custom-class" %>
+      </li>
+      <li class="nav-item active">
+        <% if current_user.profile.nil? %>
+          <%= link_to "make your profile", new_profile_path, class: "nav-link custom class" %>
+        <% end %>
+      </li>
+      <li class="nav-item active">
+          <% unless current_user.profile.nil? %>
+            <%= link_to "your profile", profile_path(current_user.profile.id), class: "nav-link custom-class" %>
+          <% end %>
+      </li>
+    </ul>
+  </div>
 </nav>

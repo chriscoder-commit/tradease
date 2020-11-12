@@ -5,8 +5,7 @@
 <p>About me: <%= @profile.about_me %></p>
 <p>Skills: <%= @profile.skills %></p>
 
-
-<%= link_to "edit profile", edit_profile_path(current_user.profile.id) %>
-
-<%= link_to "your listings", profile_listings_profile_path(@profile) %>
-
+<% if user_signed_in? && current_user.profile == @profile %>
+  <%= link_to "edit profile", edit_profile_path(current_user.profile.id) %>
+  <%= link_to "your listings", profile_listings_profile_path(@profile) %>
+<% end %>

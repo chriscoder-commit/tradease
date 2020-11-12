@@ -1,5 +1,5 @@
 <%#the send path of rails is determined by having a new comment, and so rails guesses that I'd want 
-a listing/:id/comment path%>
+a listing/:id/comment path. Also .build functions similarly to .new for objects attached to another object%>
 <%= form_with(model: [ @listing, @listing.comments.build ], local: true) do |form| %> 
   <%= form.label :body %>
   <%= form.text_field :body %>
