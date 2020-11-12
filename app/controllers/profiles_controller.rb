@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile, only: [:show, :edit, :update, :profile_listings]
+  before_action :authorize_user, only: [:show, :edit, :update, :profile_listings]
+
 
   def index
     @profiles = Profile.all
@@ -37,6 +39,13 @@ class ProfilesController < ApplicationController
   end
 
   private 
+
+  def authorize_user
+    unless current_user.id == @profile.user_id
+      flash[:unauthorized] = "Not authorized"
+      redirect_to listings_path
+    end 
+  end
 
   def set_profile
     id = params[:id]
