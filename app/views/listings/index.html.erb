@@ -25,14 +25,19 @@
 
 <%= flash[:unauthorized] %>
 
-<%# this is a loop that will list all listings that have been made, in the index %>
+<%#note that this is the loop to go through the contents of a listing - additionally note that you don't use IV @listings inside of the loop because of the pipes
+ so with the image_tag despite using @listing.picture normally, you don't do this here. %>
 <% @listings.each do |listing| %>
-<p>Posted by: <%= listing.user.username %>
-<p>Name: <%= listing.name %></p>
-<p>Price: <%= listing.price %></p>
-<p>Availability: <%= listing.available %></p>
-<p>Description: <%= listing.description %></p>
-<%= link_to listing[:name], listing_path(listing[:id]) %>
-<p>Comment Count: <%= listing.comments.count %> </p>
+  <div class="card" style="width: 25rem;">
+    <div class="card-body c-body">
+      <h5 class="card-title c-title">Listing</h5>
+        <%= image_tag listing.picture, class: "card-img-top" if listing.picture.attached? %>
+        <p>Posted by: <%= listing.user.username %></p>
+        <p>Name: <%= listing.name %></p>
+        <p>Price: <%= listing.price %></p>
+        <p>Availability: <%= listing.available %></p>
+        <%= link_to listing[:name], listing_path(listing[:id]) %>
+        <p>Comment Count: <%= listing.comments.count %> </p>
+    </div>
+  </div>
 <% end %>
-
