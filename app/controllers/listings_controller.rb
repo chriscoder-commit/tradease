@@ -22,6 +22,9 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.new(listing_params)
     @listing.user = current_user
     if @listing.save
+      puts "*************************************" 
+      p current_user 
+      puts "************************************************"
       ListingMailer.send_listing_new_mail(current_user).deliver
       redirect_to @listing, notice: 'Listing successfully created!'
     else
