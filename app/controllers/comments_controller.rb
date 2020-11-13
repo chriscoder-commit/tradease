@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @comment = @listing.comments.create(comment_params)
     @comment.user = current_user
-    p @comment.errors.full_messages
     if @comment.save
       redirect_to @listing
     else

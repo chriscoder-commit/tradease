@@ -1,15 +1,14 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def new
     @review = Review.new
   end 
 
   def create
-    @profile = Profile.find(params[:profile_id])
+    @profile = Profile.new(review_params)
     @review = @profile.reviews.create(review_params)
-    @review.user = current_user
-    p @review.errors.full_messages
+    @review.user = current_user    
     if @review.save
       redirect_to @profile
     else
@@ -18,7 +17,7 @@ class ReviewsController < ApplicationController
   end 
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = Review.find(review_params[:id])
     @review.destroy
     redirect_to profile_reviews_path
   end 
@@ -26,10 +25,8 @@ class ReviewsController < ApplicationController
 
   private
 
-
-
   def review_params
-    params.require(:review).permit(:body, :stars)
+    params.require(:review).permit(:body, :stars, :id)
   end 
 
 
