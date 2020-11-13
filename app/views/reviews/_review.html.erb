@@ -1,0 +1,5 @@
+<p>User <%= review.user.username %> says </p> 
+  <p> <%= review.body %><p>
+  <p>posted at: <%= review.user.created_at %> </p>
+  <p>view commentor's profile: <%= link_to "reviewer's profile", profile_path(review.user.profile) %>
+

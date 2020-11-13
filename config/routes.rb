@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "profile_listings"
       end 
     end
+  resources :reviews, only: [:new, :create, :destroy]
   
 
 
