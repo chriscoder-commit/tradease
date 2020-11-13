@@ -1,16 +1,10 @@
 <h1>Listings Homepage</h1>
+<div class="listings-header">
+  <div class="logo">
+    <%= image_tag "TRADEase.png", alt: "logo", class: "logo" %>
+  </div>
+</div>
 
-<%= image_tag "TRADEase.png", alt: "logo" %>
-
-<%# links to other areas of the application %>
-<%= link_to "become a tradie!", new_tradesman_path %>
-<%= link_to "make a listing", new_listing_path %>
-<% if current_user.profile.nil? %>
-  <%= link_to "make your profile", new_profile_path %>
-<% end %>
-<% unless current_user.profile.nil? %>
-  <%= link_to "your profile", profile_path(current_user.profile.id) %>
-<% end %>
 
 <%#this is the search functionality of the app%>
 <%= form_with(scope: :search, url: listings_path, method: 'get', local: true) do |f| %>
@@ -26,6 +20,11 @@
 <% end %>
 
 <%= flash[:unauthorized] %>
+
+
+<%# link to make a listing on the homepage %>
+<%= link_to "make a listing", new_listing_path %>
+
 
 <%#note that this is the loop to go through the contents of a listing - additionally note that you don't use IV @listings inside of the loop because of the pipes
  so with the image_tag despite using @listing.picture normally, you don't do this here. %>
@@ -43,3 +42,17 @@
     </div>
   </div>
 <% end %>
+
+
+
+
+<%# some code I didn't want to delete yet just in case I broke something else: %>
+
+<%# <%= link_to "become a tradie!", new_tradesman_path %>
+<%# <%= link_to "make a listing", new_listing_path %>
+<%# <% if current_user.profile.nil? %>
+  <%# <%= link_to "make your profile", new_profile_path %>
+<%# <% end %>
+<%# <% unless current_user.profile.nil? %>
+  <%# <%= link_to "your profile", profile_path(current_user.profile.id) %>
+<%# <% end %> 
