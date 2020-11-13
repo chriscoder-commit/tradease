@@ -6,8 +6,8 @@ Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
   :user_name => 'apikey',
-  :password => Rails.application.credentials.dig(:aws, :access_key_id),
-  :domain => 'https://git.heroku.com/tradie-marketplace-app.git',
+  :password => Rails.application.credentials.dig(:sendgrid, :api_key),
+  :domain => 'tradie-marketplace-app.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,

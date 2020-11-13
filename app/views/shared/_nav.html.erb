@@ -22,6 +22,10 @@
             <%= link_to "your profile", profile_path(current_user.profile.id), class: "nav-link custom-class" %>
           <% end %>
       </li>
+      <li class="nav-item active">
+        <% if current_user.tradesman.nil? %>
+          <%= link_to "become a tradie!", new_tradesman_path, class: "nav-link custom-class" %>
+        <% end %>
     </ul>
   </div>
 </nav>
