@@ -1,3 +1,5 @@
 <p>User <%= comment.user.username %> says </p> 
   <p> <%= comment.body %><p>
   <p>posted at: <%= comment.user.created_at %> </p>
+  <p>view commentor's profile: <%= link_to "commentor's profile", profile_path(comment.user.profile) %>
+
