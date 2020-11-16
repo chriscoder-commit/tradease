@@ -26,6 +26,10 @@
 </div>
 
 <%#requires a different path as the comment form exists in a different folder (comments), and not listing where the form is displayed%>
-<div class="new-comment">
-  <%= render 'comments/comment_form', comment: @comment %>
-</div>
+<% if current_user.tradesman %>
+  <div class="new-comment">
+    <%= render 'comments/comment_form', comment: @comment %>
+  </div>
+  <% else %>
+    <p>You must be a certified tradie to respond to listings!</p>
+<% end %>
