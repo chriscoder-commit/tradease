@@ -1,6 +1,15 @@
-<h1>WELCOME CHUM</h1>
+<h1>WELCOME:</h1>
 <% unless user_signed_in? %>
-  <h4><strong>Lets get you signed up so you can make your profile and get trading!</strong></h4>
+  <h4><strong>Let's get you trading!</strong></h4>
+<% end %>
+
+<% if user_signed_in? %>
+<div class="listing-button">
+  <%= link_to "make a listing", new_listing_path, class: "btn btn-primary" %>
+</div>
+<div class="listing-button">
+  <%= link_to "view listings", listings_path, class: "btn btn-primary" %>
+</div>
 <% end %>
 
 <% unless user_signed_in? %>
@@ -11,3 +20,19 @@
 <% if user_signed_in? && current_user.profile.nil? %>
   <% controller.redirect_to new_profile_path %>
 <% end %>
+
+<div class="about-container">
+  <h4>About Us:</h4>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+      when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+      It has survived not only five centuries, but also the leap into electronic typesetting, 
+      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+      and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+    </p>
+</div>
+
+<div class="welcome-image">
+  <%= image_tag "TRADEase.png" %>
+</div>
