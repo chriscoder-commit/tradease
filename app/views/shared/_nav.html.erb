@@ -26,6 +26,19 @@
         <% if current_user.tradesman.nil? %>
           <%= link_to "become a tradie!", new_tradesman_path, class: "nav-link custom-class" %>
         <% end %>
+      </li>
+      <li class="nav-item active nav-link custom-class">
+        <%= form_with(scope: :search, url: listings_path, method: 'get', local: true) do |f| %>
+          <%= f.label :listing %>
+          <%= f.text_field :listing %>
+          <%= f.submit %>
+          <%= f.label :min_price %>
+          <%= f.number_field :min_price %>
+          <%= f.label :max_price %>
+          <%= f.number_field :max_price %>
+          <%= f.submit %>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>
