@@ -20,9 +20,11 @@
   <div class="create-review">
     <p><strong>Add a review:</strong></p>
     <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
-  <div>
+  </div>
 
   <%# reviews will be listed here%>
-  <%= render partial: 'reviews/review', locals: {reviews: @profile.reviews} %>
+  <div class="render-reviews">
+    <%= render partial: 'reviews/review', locals: {reviews: @profile.reviews} %>
+  </div>
 </div>
 

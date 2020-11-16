@@ -1,24 +1,38 @@
 
-hi <%= current_user.username %>
+Hi <%= current_user.username %>!
 
+<div>
 <%= form_with model: @profile, local: true do |form| %>
- <%= form.label :name %>
-  <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
   
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-  
-  <%= form.label :place_of_business %>
-  <%= form.text_field :place_of_business %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
 
-  <%= form.label :about_me %>
-  <%= form.text_field :about_me %>
+  <div class="form-group">
+    <%= form.label :place_of_business %>
+    <%= form.text_field :place_of_business, class: 'form-control' %>
+  </div>
 
-  <%= form.label :Skills %>
-  <%= form.select :skills, options_for_select(Profile.skills.keys) %>
+  <div class="form-group">
+    <%= form.label :about_me %>
+    <%= form.text_field :about_me, class: 'form-control' %>
+  </div>
 
-  <%= form.submit id: "submit" %>
+  <div class="form-group">
+    <%= form.label :Skills %>
+    <%= form.select :skills, options_for_select(Profile.skills.keys), class: 'form-control checkbox' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit id: "submit" %>
+  </div>
 <% end %>
+</div>
 
 
 

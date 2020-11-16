@@ -1,20 +1,29 @@
-<%= form_with model: @listing, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  
-  <%= form.label :price %>
-  <%= form.number_field :price %>
-  
-  <%= form.label :available %>
-  <%= form.text_field :available %>
+<div>
+  <%= form_with model: @listing, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :available %>
+    <%= form.text_field :available, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: 'form-control' %>
+    
+  <div class="form-group">
+    <%= form.submit id: "submit" %>
+  </div>
 
-  <%= form.label :description %>
-  <%= form.text_field :description %>
-  <%= form.submit id: "submit" %>
-
-  <%= form. label :picture %>
-  <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
-<% end %>
+    <%= form. label :picture %>
+    <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
+  <% end %>
+</div>
 
 
 
