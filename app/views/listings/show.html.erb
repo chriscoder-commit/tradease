@@ -1,10 +1,12 @@
 <h1>individual listing </h1>
 
-<p>listing: <%= @listing.name %></p>
-<p>price: <%= @listing.price %></p>
-<p>available: <%= @listing.available %></p>
-<p>description: <%= @listing.description %></p>
-<p>image: <%= image_tag @listing.picture if @listing.picture.attached? %>
+<div class="card show-card-container">
+  <p>listing: <%= @listing.name %></p>
+  <p>price: <%= @listing.price %></p>
+  <p>available: <%= @listing.available %></p>
+  <p>description: <%= @listing.description %></p>
+  <p>image: <%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
 
 <%# if the current user's listing including the instance variable of the currently shown listing then render the edit and delete %>
 <% if user_signed_in? && current_user.listings.include?(@listing) %> 
@@ -19,7 +21,11 @@
 <p>comment count: <%= @listing.comments.count %></p>
 
 <%#this is what renders the comments, collection means use this partial but use for this array of things %>
-<%= render partial: "comments/comment", collection: @listing.comments %>
+<div class="comments-container">
+  <%= render partial: "comments/comment", collection: @listing.comments %>
+</div>
 
 <%#requires a different path as the comment form exists in a different folder (comments), and not listing where the form is displayed%>
-<%= render 'comments/comment_form', comment: @comment %>
+<div class="new-comment">
+  <%= render 'comments/comment_form', comment: @comment %>
+</div>

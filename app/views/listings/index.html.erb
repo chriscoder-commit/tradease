@@ -10,8 +10,9 @@
 
 
 <%# link to make a listing on the homepage %>
-<%= link_to "make a listing", new_listing_path, class: "btn btn-primary" %>
-
+<div class="listing-button">
+  <%= link_to "make a listing", new_listing_path, class: "btn btn-primary" %>
+</div>
 
 <%#note that this is the loop to go through the contents of a listing - additionally note that you don't use IV @listings inside of the loop because of the pipes
  so with the image_tag despite using @listing.picture normally, you don't do this here. %>

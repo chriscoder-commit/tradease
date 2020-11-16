@@ -1,6 +1,9 @@
-<p>User <%= review.profile.user.username %> says </p> 
+<% reviews.each do |review| %>
+<p>User <%= review.user.try(:username) %> says </p> 
   <p> <%= review.body %><p>
   <p>posted at: <%= review.created_at %> </p>
   <br>
+<% end %>
+
   <%# <p>view commentor's profile: <%= link_to "reviewer's profile", profile_path(review.user.profile) %>
 

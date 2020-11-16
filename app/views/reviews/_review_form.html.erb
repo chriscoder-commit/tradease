@@ -1,6 +1,6 @@
 hi <%= current_user.username %>
 
-<%= form_with(model: [ @profile, @profile.reviews.build ], local: true) do |form| %>
+<%= form_with(scope: :review, url: profile_reviews_path(profile), local: true) do |form| %>
   <%= form.label :body %>
   <%= form.text_field :body %>
   <%= form.label :stars %>

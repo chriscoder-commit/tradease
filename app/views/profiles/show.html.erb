@@ -1,18 +1,27 @@
 <h1>show profile page </h1>
-<p>Name: <%= @profile.name %> </p>
-<p>Description: <%= @profile.description %></p>
-<p>Place of Business: <%= @profile.place_of_business%></p>
-<p>About me: <%= @profile.about_me %></p>
-<p>Skills: <%= @profile.skills %></p>
+
+<div class="card profile-info">
+  <p><strong>Name:</strong> <%= @profile.name %> </p>
+  <p><strong>Description:</strong> <%= @profile.description %></p>
+  <p><strong>Place of Business:</strong> <%= @profile.place_of_business%></p>
+  <p><strong>About me:</strong> <%= @profile.about_me %></p>
+  <p><strong>Skills:</strong> <%= @profile.skills %></p>
 
 <% if user_signed_in? && current_user.profile == @profile %>
-  <%= link_to "edit profile", edit_profile_path(current_user.profile.id) %>
+  <%= link_to "edit profile", edit_profile_path(current_user.profile.id) %> 
   <%= link_to "your listings", profile_listings_profile_path(@profile) %>
 <% end %>
+</div>
+
+
 
 <%#Users may add reviews here%>
-<p>Add a review:</p>
-  <%= render 'reviews/review_form', review: @review %>
+<div class="card reviews-container">
+  <div class="create-review">
+  <p>Add a review:</p>
+  <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
 
-<%# reviews will be listed here%>
-<%= render partial: 'reviews/review', collection: @profile.reviews %>
+  <%# reviews will be listed here%>
+  <%= render partial: 'reviews/review', locals: {reviews: @profile.reviews} %>
+</div>
+

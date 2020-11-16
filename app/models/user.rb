@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_one :profile
   has_many :listings
   has_many :comments
-  has_many :reivews
+  has_many :reviews
 
   validates :username, presence: true
 
