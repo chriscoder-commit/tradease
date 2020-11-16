@@ -1,3 +1,7 @@
 <h1>Make your profile!</h1>
 
+<% if current_user.profile.nil? %>
+  <p>We're very excited to have you join, just a few more steps and you'll be able to post listings!</p>
+<% end %>
+
 <p><%= render "profile_form", listing: @profile %></p>
