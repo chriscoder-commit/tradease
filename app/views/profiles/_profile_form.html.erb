@@ -14,8 +14,8 @@ hi <%= current_user.username %>
   <%= form.label :about_me %>
   <%= form.text_field :about_me %>
 
-  <%= form.label :skills %>
-  <%= form.text_field :skills %>
+  <%= form.label :Skills %>
+  <%= form.select :skills, options_for_select(Profile.skills.keys) %>
 
   <%= form.submit id: "submit" %>
 <% end %>
