@@ -15,3 +15,4 @@
   <%= render 'reviews/review_form', review: @review %>
 
 <%# reviews will be listed here%>
+<%= render partial: 'reviews/review', collection: @profile.reviews %>

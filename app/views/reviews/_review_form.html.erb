@@ -1,12 +1,12 @@
 hi <%= current_user.username %>
 
-<%= form_with model: review, local: true do |form| %>
+<%= form_with(model: [ @profile, @profile.reviews.build ], local: true) do |form| %>
   <%= form.label :body %>
   <%= form.text_field :body %>
-
   <%= form.label :stars %>
   <%= form.number_field :stars %>
-  
   <%= form.submit id: "submit" %>
 <% end %>
+
+
 

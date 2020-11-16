@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   resources :profiles do 
     member do
       get "profile_listings"
-      end 
+      end
+      resources :reviews, only: [:new, :create, :destroy]
     end
-  resources :reviews, only: [:new, :create, :destroy]
+  
+
   
 
 

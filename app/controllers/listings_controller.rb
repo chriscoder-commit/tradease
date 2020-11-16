@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
       ListingMailer.send_listing_new_mail(current_user).deliver
       redirect_to @listing, notice: 'Listing successfully created!'
     else
-      render :new  
+      render :new
     end 
   end
   
