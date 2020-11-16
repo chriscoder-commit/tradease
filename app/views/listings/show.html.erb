@@ -16,6 +16,10 @@
 
 
 <%# this will be where stripe payment will go%>
+<script src="https://js.stripe.com/v3/"></script>
+<%= javascript_pack_tag "stripe" %>
+<button data-stripe="payment", id="stripe">Safe pay</button>
+<p>We offer payment facilities and will transfer the funds safely to the other party to the transaction, minus our usage fee</p>
 
 <%# this is how to render the amount of comments on a listing %>
 <p>comment count: <%= @listing.comments.count %></p>

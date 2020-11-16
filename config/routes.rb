@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       end
       resources :reviews, only: [:new, :create, :destroy]
     end
+    
+  resources :payments, only: [:create]
+  get "/payments/success", to: "payments#success"
+  get "/payments/cancel", to: "payments#cancel"
+  post "/payments/webhook", to: "payments#webhook"
 
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
