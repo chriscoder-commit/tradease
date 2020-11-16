@@ -18,8 +18,9 @@
 <%#Users may add reviews here%>
 <div class="card reviews-container">
   <div class="create-review">
-  <p>Add a review:</p>
-  <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
+    <p><strong>Add a review:</strong></p>
+    <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
+  <div>
 
   <%# reviews will be listed here%>
   <%= render partial: 'reviews/review', locals: {reviews: @profile.reviews} %>
