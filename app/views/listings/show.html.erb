@@ -16,8 +16,7 @@
 
 
 <%# this will be where stripe payment will go%>
-<script src="https://js.stripe.com/v3/"></script>
-<%= javascript_pack_tag "stripe" %>
+
 <button data-stripe="payment", id="stripe">Safe pay</button>
 <p>We offer payment facilities and will transfer the funds safely to the other party to the transaction, minus our usage fee</p>
 
@@ -38,3 +37,6 @@
   <% else %>
     <p><strong>You must be a certified tradie to respond to other people's listings!</strong></p>
 <% end %>
+
+
+<%= javascript_pack_tag "stripe" %>

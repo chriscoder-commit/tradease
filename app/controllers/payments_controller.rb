@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
   end
 
   def webhook 
-    endpoint_secret = Rails.application.credentials.dig(:stripe, :endpoint_secret)
+    endpoint_secret = Rails.application.credentials[Rails.env.to_sym][:stripe][:endpoint_secret]
     begin
       sig_header = request.env['HTTP_STRIPE_SIGNATURE']
       payload = request.body.read
