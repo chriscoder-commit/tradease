@@ -1,4 +1,4 @@
-<h1>Profile Page </h1>
+<h1>Profile:</h1>
 
 <div class="card profile-info">
   <p><strong>Name:</strong> <%= @profile.name %> </p>
@@ -21,8 +21,6 @@
     <%= link_to "your listings", profile_listings_profile_path(@profile) %>
   <% end %>
 </div>
-
-
 
 <%#Users may add reviews here%>
 <% unless current_user[:id] == @profile.id %>

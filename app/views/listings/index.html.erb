@@ -1,4 +1,3 @@
-<h1>Listings Homepage</h1>
 <div class="listings-header">
   <div class="logo">
     <%= image_tag "TRADEase.png", alt: "logo", class: "logo" %>
@@ -8,27 +7,27 @@
 
 <%= flash[:unauthorized] %>
 
-
 <%# link to make a listing on the homepage %>
 <div class="listing-button">
   <%= link_to "make a listing", new_listing_path, class: "btn btn-primary" %>
 </div>
 
 <%#note that this is the loop to go through the contents of a listing - additionally note that you don't use IV @listings inside of the loop because of the pipes
- so with the image_tag despite using @listing.picture normally, you don't do this here. %>
-<div class="card-container">
-<% @listings.each do |listing| %>
-  <div class="card" style="width: 25rem;">
-    <div class="card-body c-body">
-      <h5 class="card-title c-title">Listing</h5>
-        <%= image_tag listing.picture, class: "card-img-top" if listing.picture.attached? %>
-        <p>Posted by: <%= listing.user.username %></p>
-        <p>Name: <%= listing.name %></p>
-        <p>Price: <%= listing.price %></p>
-        <p>Availability: <%= listing.available %></p>
-        <%= link_to listing[:name], listing_path(listing[:id]) %>
-        <p>Comment Count: <%= listing.comments.count %> </p>
+so with the image_tag despite using @listing.picture normally, you don't do this here. %>
+  <div class="card-container">
+  <% @listings.each do |listing| %>
+    <div class="card" style="width: 25rem;">
+      <div class="card-body c-body">
+        <h5 class="card-title c-title">Listing</h5>
+          <%= image_tag listing.picture, class: "card-img-top" if listing.picture.attached? %>
+          <p>Posted by: <%= listing.user.username %></p>
+          <p>Listing title: <%= listing.name %></p>
+          <p>Estimated budget: <%= listing.price %></p>
+          <p>Available? <%= listing.available %></p>
+          <%= link_to listing[:name], listing_path(listing[:id]) %>
+          <p>Comment Count: <%= listing.comments.count %> </p>
+      </div>
     </div>
+  <% end %>
   </div>
-<% end %>
-</div>
+
