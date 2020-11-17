@@ -2,15 +2,24 @@
 
 <div class="card profile-info">
   <p><strong>Name:</strong> <%= @profile.name %> </p>
-  <p><strong>Description:</strong> <%= @profile.description %></p>
-  <p><strong>Place of Business:</strong> <%= @profile.place_of_business%></p>
-  <p><strong>About me:</strong> <%= @profile.about_me %></p>
-  <p><strong>Skills:</strong> <%= @profile.skills %></p>
+  <p><strong>User Description:</strong> <%= @profile.description %></p>
 
-<% if user_signed_in? && current_user.profile == @profile %>
-  <%= link_to "edit profile", edit_profile_path(current_user.profile.id) %> 
-  <%= link_to "your listings", profile_listings_profile_path(@profile) %>
-<% end %>
+  <% unless @profile.about_me.blank? %>
+    <p><strong>About me:</strong> <%= @profile.about_me %></p>
+  <% end %>
+
+  <% unless @profile.place_of_business.blank? %>
+    <p><strong>Place of Business:</strong> <%= @profile.place_of_business%></p>
+  <% end %>
+
+  <% unless @profile.skills.blank? %>
+    <p><strong>Primary area of work:</strong> <%= @profile.skills %></p>
+  <% end %>
+
+  <% if user_signed_in? && current_user.profile == @profile %>
+    <%= link_to "edit profile", edit_profile_path(current_user.profile.id) %> 
+    <%= link_to "your listings", profile_listings_profile_path(@profile) %>
+  <% end %>
 </div>
 
 

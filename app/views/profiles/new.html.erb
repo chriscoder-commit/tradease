@@ -1,7 +1,10 @@
 <h1>Make your profile!</h1>
 
+<p>Hi <%= current_user.username %>!</p>
+
 <% if current_user.profile.nil? %>
   <p>We're very excited to have you join, just a few more steps and you'll be able to post listings!</p>
+  <p><strong>Note</strong> that if you are planning on registering as a tradesperson, there are some additional fields you can fill out when <strong>editing</strong> your profile in the 'Your Profile' tab, to give users more information about you, and your work! </p>
 <% end %>
 
-<p><%= render "profile_form", listing: @profile %></p>
+<p><%= render "new_user_profile_form", listing: @profile %></p>

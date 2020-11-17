@@ -3,11 +3,12 @@ class Profile < ApplicationRecord
   has_many :reviews
 
   enum skills: {
-    "Carpentry": 0,
-    "Welding": 1,
-    "Landscaping": 2,
-    "Plumbing": 3,
-    "Electrician": 4,
+    " ": 0,
+    "Carpentry": 1,
+    "Welding": 2,
+    "Landscaping": 3,
+    "Plumbing": 4,
+    "Electrician": 5,
   }
 
   validates :name, presence: true

@@ -2,8 +2,8 @@ class Listing < ApplicationRecord
   include Searchable
 
   belongs_to :user
-  has_many :comments
-  has_one_attached :picture
+  has_many :comments, dependent: :destroy
+  has_one_attached :picture, dependent: :destroy
 
   validates :price, numericality: { only_integer: true }
   validates :description, length: { in: 10..500 }

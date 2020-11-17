@@ -1,5 +1,4 @@
-Hi <%= current_user.username %>
-  <br><br>
+<p>Hi <%= current_user.username %></p>
 
 <div>
   <%= form_with(scope: :review, url: profile_reviews_path(profile), local: true) do |form| %>

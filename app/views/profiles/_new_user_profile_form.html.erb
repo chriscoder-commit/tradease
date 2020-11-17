@@ -1,0 +1,18 @@
+<div>
+<%= form_with model: @profile, local: true do |form| %>
+  <div class="form-group">
+    <strong><%= form.label :name %>:</strong>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <strong><%= form.label :user_description %>:</strong>
+    <p>What are you using the site for? to hire tradesman? to find work? both!?</p>
+    <%= form.text_field :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit id: "submit" %>
+  </div>
+<% end %>
+</div>
