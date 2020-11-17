@@ -25,11 +25,13 @@
 
 
 <%#Users may add reviews here%>
+<% unless current_user[:id] == @profile.id %>
 <div class="card reviews-container">
   <div class="create-review">
     <p><strong>Add a review:</strong></p>
     <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
   </div>
+<% end %>
 
   <%# reviews will be listed here%>
   <div class="render-reviews">
