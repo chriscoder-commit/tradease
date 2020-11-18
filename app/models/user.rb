@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reviews
 
+  validates :email, uniqueness: true
   validates :username, presence: true, uniqueness: true, length: { in: 5..15 }
 
   def tradesman?

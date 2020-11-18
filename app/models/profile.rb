@@ -11,5 +11,5 @@ class Profile < ApplicationRecord
     "Electrician": 5,
   }
 
-  validates :name, presence: true
+  validates :name, length: {minimum: 5, too_short: "%{count} us the minimum number of characters"}
 end

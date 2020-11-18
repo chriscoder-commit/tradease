@@ -8,24 +8,24 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <%#below are the lines to log out and return to listings page, I haven't added their class so they default to their container classes parameters? %>
-          <%= link_to "Listings", listings_path, class: "nav-link custom-class" %>
+          <%= link_to "Listings", listings_path, class: "nav-link custom-class links-hover" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "nav-link custom-class" %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: "delete", class: "nav-link custom-class links-hover" %>
         </li>
         <li class="nav-item active">
           <% if current_user.profile.nil? %>
-            <%= link_to "Make Your Profile", new_profile_path, class: "nav-link custom class" %>
+            <%= link_to "Make Your Profile", new_profile_path, class: "nav-link custom class links-hover" %>
           <% end %>
         </li>
         <li class="nav-item active">
             <% unless current_user.profile.nil? %>
-              <%= link_to "Your Profile", profile_path(current_user.profile.id), class: "nav-link custom-class" %>
+              <%= link_to "Your Profile", profile_path(current_user.profile.id), class: "nav-link custom-class links-hover" %>
             <% end %>
         </li>
         <li class="nav-item active">
           <% if current_user.tradesman.nil? %>
-            <%= link_to "Become a Tradie!", new_tradesman_path, class: "nav-link custom-class" %>
+            <%= link_to "Become a Tradie!", new_tradesman_path, class: "nav-link custom-class links-hover" %>
           <% end %>
         </li>
         <li class="nav-item active nav-link custom-class">
@@ -41,7 +41,7 @@
           <% end %>
         </li>
         <li class="nav-item active">
-          <%= link_to "About Us", root_path, class: "nav-link custom-class" %>
+          <%= link_to "About Us", root_path, class: "nav-link custom-class links-hover" %>
         </li>
       </ul>
     </div>

@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     if @profile.save 
       redirect_to listings_path
-    else 
+    else
       render :new
     end 
   end 

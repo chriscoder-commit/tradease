@@ -15,6 +15,7 @@
 <%#note that this is the loop to go through the contents of a listing - additionally note that you don't use IV @listings inside of the loop because of the pipes
 so with the image_tag despite using @listing.picture normally, you don't do this here. %>
   <div class="card-container">
+  <div class="card-columns">
   <% @listings.each do |listing| %>
     <div class="card" style="width: 25rem;">
       <div class="card-body c-body">
@@ -30,4 +31,5 @@ so with the image_tag despite using @listing.picture normally, you don't do this
     </div>
   <% end %>
   </div>
+</div>
 
