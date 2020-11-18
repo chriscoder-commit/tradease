@@ -1,3 +1,4 @@
+<%# this is form to make a listing, and contains the inputs that users are permitted to add through the controller, as well as some bootstrap styling elements%>
 <div>
   <%= form_with model: @listing, local: true do |form| %>
   <div class="form-group">
@@ -15,13 +16,15 @@
   <div class="form-group">
     <%= form.label :description_of_job %>:
     <%= form.text_field :description, class: 'form-control' %>
-    
-  <div class="form-group">
-    <%= form.submit id: "submit" %>
-  </div>
 
     <%= form. label :picture %>
     <%= form.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
+
+  <div class="form-group">
+    <%= form.submit id: "submit", class: "btn btn-primary" %>
+  </div>
+
+    
   <% end %>
 </div>
 

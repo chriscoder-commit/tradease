@@ -1,4 +1,11 @@
-<%#this is the actual form field that can be filled in by users%>
+<%#this is the edit form field that users can access through the edit function. note the additional fields so users can tailor their profile to provide trade info.%>
+<div>
+  <% if @profile.errors.any? %>
+    <%= @profile.errors.full_messages %>
+  <% end %>
+</div>
+
+
 <%= form_with model: @profile, local: true do |form| %>
   <div class="form-group">
     <%= form.label :name %>

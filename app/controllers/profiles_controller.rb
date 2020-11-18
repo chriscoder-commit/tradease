@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :profile_listings]
   before_action :authorize_user, only: [:edit, :update, :profile_listings]
 
-
   def index
     @profiles = Profile.all
   end 
@@ -35,12 +34,16 @@ class ProfilesController < ApplicationController
   end 
 
   def update
-    @profile.update(profile_params)
-    redirect_to profile_path
+    if @profile.update(profile_params)
+      redirect_to profile_path
+    else 
+      render :edit
+    end 
   end
 
   private 
 
+  #this is an example of authorizations that prevents people accessing profiles exception in a situation I have allowed through the comments.
   def authorize_user
     unless current_user.id == @profile.user_id
       flash[:unauthorized] = "Not authorized"
@@ -48,11 +51,13 @@ class ProfilesController < ApplicationController
     end 
   end
 
+  #this sets a profile where it is relevant, such as for the show action above, and will happen before the show action (for example) executes due to the before_action
   def set_profile
     id = params[:id]
     @profile = Profile.find(id)
   end 
 
+  #this sets the allowed parameters that users can enter ino the application in conjunction with its before_action
   def profile_params
     params.require(:profile).permit(:name, :description, :place_of_business, :about_me, :skills)
   end 

@@ -1,4 +1,5 @@
 <h1>Payment successfully made!</h1>
 
+<%#some ruby that will print out the listing name and the price of a listing to confirm to user it was made %>
 <h2>You have paid <%= number_to_currency(@listing.price) %></h2>
-<h3>For <%= @listing.name %></h3>
+<h3>In relation to the following listing: <%= @listing.name %></h3>

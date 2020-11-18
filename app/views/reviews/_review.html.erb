@@ -1,3 +1,4 @@
+<%#this is the actual code that renders the review on the profile %>
 <% reviews.each do |review| %>
 <p>User <%= review.user.try(:username) %> says: </p> 
   <p> <%= review.body %><p>

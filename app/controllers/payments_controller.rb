@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!, except: [:webhook]
   skip_before_action :verify_authenticity_token, only: [:create, :webhook]
 
+  #this code relates to the stripe functionality of the application
   def create 
     listing = Listing.find(params[:id])
     session = Stripe::Checkout::Session.create({

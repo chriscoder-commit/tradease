@@ -1,5 +1,6 @@
 <p>Hi <%= current_user.username %></p>
 
+<%#this is the form for a review which is rendered on the profile show page - so users can conveniently read reviews on another profile %>
 <div>
   <%= form_with(scope: :review, url: profile_reviews_path(profile), local: true) do |form| %>
   <div class="form-group">

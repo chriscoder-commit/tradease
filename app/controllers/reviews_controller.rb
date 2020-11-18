@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end 
 
+  #profile id must be determined as reviews are attached to, or belong_to profiles in the model association, thus rails will set the id and then allow comments
+  #to be made.
   def create
     @profile = Profile.find(params[:profile_id])
     @review = @profile.reviews.create(review_params)
