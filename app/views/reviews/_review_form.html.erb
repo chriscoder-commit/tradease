@@ -1,5 +1,12 @@
 <p>Hi <%= current_user.username %></p>
 
+  <div>
+  <% if @review.errors.any? %>
+    <%= @preview.errors.full_messages %>
+  <% end %>
+</div>
+
+
 <%#this is the form for a review which is rendered on the profile show page - so users can conveniently read reviews on another profile %>
 <div>
   <%= form_with(scope: :review, url: profile_reviews_path(profile), local: true) do |form| %>
@@ -13,7 +20,7 @@
     <%= form.label :stars %>
   </div>
   <div class="form-group">
-    <%= form.number_field :stars %>
+    <%= form.number_field :stars, {min: 1, max: 5} %>
   </div>
     <%= form.submit id: "submit" %>
   <% end %>

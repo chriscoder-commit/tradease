@@ -1,11 +1,5 @@
 <%# this is the form to create a profile upon user creation, note does not have all the fields the edit form has %>
 
-<div>
-  <% if @profile.errors.any? %>
-  <%= @profile.errors.full_messages %>
-  <% end %>
-</div>
-
 <%= form_with model: @profile, local: true do |form| %>
   <div class="form-group">
     <strong><%= form.label :name %>:</strong>
