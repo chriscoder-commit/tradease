@@ -14,5 +14,5 @@ class Profile < ApplicationRecord
   }
 
   #validation that restricts how inputs can be filled in
-  validates :name, length: {minimum: 5, too_short: "%{count} is the minimum number of characters"}
+  validates :name, length: {minimum: 2, too_short: "%{count} is the minimum number of characters"}
 end
