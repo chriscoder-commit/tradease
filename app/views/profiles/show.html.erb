@@ -1,6 +1,6 @@
 <h1>Profile:</h1>
 
-<%# this renders your profile information where it is filled in, otherwise it will not appear until a user edits it to not be blank %>
+<%# this renders your profile information where it is filled in, otherwise it will not appear until a user edits it to not be blank%>
 <div class="card profile-info">
   <p><strong>Name:</strong> <%= @profile.name %> </p>
   <p><strong>User Description:</strong> <%= @profile.description %></p>
@@ -23,14 +23,14 @@
   <% end %>
 </div>
 
-
 <%#Users may add reviews here%>
-<% unless current_user[:id] == @profile.id %>
+<% unless current_user.profile.id == @profile.id %>
 <div class="card reviews-container">
   <div class="create-review">
     <p><strong>Add a review:</strong></p>
     <%= render partial: 'reviews/review_form', locals: {profile: @profile, review: @review} %>
   </div>
+</div>
 <% end %>
 
   <%# reviews will be listed here%>
